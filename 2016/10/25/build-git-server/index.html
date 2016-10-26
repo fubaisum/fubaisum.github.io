@@ -6,10 +6,10 @@
   <title>搭建 GIT 服务器 | JiajieShen&#39;s Blog</title>
   <meta name="author" content="SkyArrow">
   
-  <meta name="description" content="搭建 GIT 服务器注：本实践过程是基于centos服务器参考：http://www.tangshuang.net/1693.html 
+  <meta name="description" content="注：本实践过程是基于centos服务器参考：http://www.tangshuang.net/1693.html 
 安装 git1yum install git
 添加 git 用户12# 用户的命名是随意的。adduser git
-禁止 git 用户通过 ssh 连接服务器控制">
+禁止 git 用户通过 ssh 连接服务器控制台12vi /etc">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -64,7 +64,7 @@
     </header>
     <div class="entry">
       
-        <h1 id="搭建-GIT-服务器"><a href="#搭建-GIT-服务器" class="headerlink" title="搭建 GIT 服务器"></a>搭建 GIT 服务器</h1><p>注：本实践过程是基于centos服务器<br>参考：<a href="http://www.tangshuang.net/1693.html" target="_blank" rel="external">http://www.tangshuang.net/1693.html</a> </p>
+        <p>注：本实践过程是基于centos服务器<br>参考：<a href="http://www.tangshuang.net/1693.html" target="_blank" rel="external">http://www.tangshuang.net/1693.html</a> </p>
 <h2 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git</div></pre></td></tr></table></figure>
 <h2 id="添加-git-用户"><a href="#添加-git-用户" class="headerlink" title="添加 git 用户"></a>添加 git 用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 用户的命名是随意的。</div><div class="line">adduser git</div></pre></td></tr></table></figure>
 <h2 id="禁止-git-用户通过-ssh-连接服务器控制台"><a href="#禁止-git-用户通过-ssh-连接服务器控制台" class="headerlink" title="禁止 git 用户通过 ssh 连接服务器控制台"></a>禁止 git 用户通过 ssh 连接服务器控制台</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/passwd</div><div class="line"># TODO: 将 git 用户登录后要运行的 shell 程序，由 /bin/bash 指定为 /usr/bin/git-shell</div></pre></td></tr></table></figure>
