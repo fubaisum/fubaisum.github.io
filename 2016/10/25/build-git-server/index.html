@@ -70,8 +70,8 @@
 <h2 id="添加-git-用户"><a href="#添加-git-用户" class="headerlink" title="添加 git 用户"></a>添加 git 用户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 用户的命名随意</span></div><div class="line">adduser git</div></pre></td></tr></table></figure>
 <h2 id="禁止-git-用户通过-ssh-连接服务器控制台"><a href="#禁止-git-用户通过-ssh-连接服务器控制台" class="headerlink" title="禁止 git 用户通过 ssh 连接服务器控制台"></a>禁止 git 用户通过 ssh 连接服务器控制台</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/passwd</div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> 将 git 用户登录后要运行的 shell 程序，由 /bin/bash 指定为 /usr/bin/git-shell</span></div></pre></td></tr></table></figure>
 <h2 id="修改-git-用户的密码"><a href="#修改-git-用户的密码" class="headerlink" title="修改 git 用户的密码"></a>修改 git 用户的密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd git</div></pre></td></tr></table></figure>
-<h1 id="设置-SSH-keys"><a href="#设置-SSH-keys" class="headerlink" title="设置 SSH keys"></a>设置 SSH keys</h1><p>SSH key 可以让本地的 git 与服务器上的 git 之间建立安全的加密连接。</p>
-<h2 id="本地电脑生成-SSH-key"><a href="#本地电脑生成-SSH-key" class="headerlink" title="本地电脑生成 SSH key"></a>本地电脑生成 SSH key</h2><p>常用生成命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure></p>
+<h1 id="设置-SSH-keys"><a href="#设置-SSH-keys" class="headerlink" title="设置 SSH keys"></a>设置 SSH keys</h1><p>SSH key 可以让本地的 git 与服务器上的 git 之间建立安全的加密连接，而不需要输入账号和密码。</p>
+<h2 id="本地电脑生成-SSH-key"><a href="#本地电脑生成-SSH-key" class="headerlink" title="本地电脑生成 SSH key"></a>本地电脑生成 SSH key</h2><p>常用生成命令（本地已经有可以不重新生成，免得破坏以前建立的 SSH 连接）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure></p>
 <p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加注释内容</span></div><div class="line">ssh-keygen -t rsa -C <span class="string">"xxx@xxx.com"</span> <span class="comment"># Creates a new ssh key using the provided email</span></div></pre></td></tr></table></figure></p>
 <p>查看生成的公钥：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa.pub</div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> copy 输出，保存到 git 服务器。</span></div></pre></td></tr></table></figure></p>
 <h2 id="服务器保存要访问的用户的公钥"><a href="#服务器保存要访问的用户的公钥" class="headerlink" title="服务器保存要访问的用户的公钥"></a>服务器保存要访问的用户的公钥</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/git/</div><div class="line">mkdir .ssh</div><div class="line"><span class="built_in">cd</span> .ssh</div><div class="line">vi authorized_keys</div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> 粘贴用户的公钥（每行一个用户公钥）</span></div></pre></td></tr></table></figure>
@@ -150,9 +150,9 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/git/">git</a><small>1</small></li>
+    <li><a href="/tags/git/">git</a><small>2</small></li>
   
-    <li><a href="/tags/服务器/">服务器</a><small>1</small></li>
+    <li><a href="/tags/服务器/">服务器</a><small>2</small></li>
   
   </ul>
 </div>
