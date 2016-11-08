@@ -9,9 +9,9 @@
   <meta name="author" content="Jiajie Shen">
   
   <meta name="description" content="注：本实践过程是基于 centos 服务器参考：用 Git Hooks 进行自动部署 
-实现目标：本地 push 代码到中央仓库，中央仓库自动部署代码到项目的运行环境。
+实现目标：本地 push 代码到 git 服务器的中央仓库，中央仓库自动部署代码到项目的运行目录。
 准备：搭建 GIT 服务器此时，服务器里已经搭建了一个中央仓库 helloworld.git。
-注：中央仓库只是一个裸仓库，不包含">
+注：中央仓库只是">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -67,7 +67,7 @@
     <div class="entry">
       
         <p>注：本实践过程是基于 centos 服务器<br>参考：<a href="https://segmentfault.com/a/1190000003836345" target="_blank" rel="external">用 Git Hooks 进行自动部署</a> </p>
-<h2 id="实现目标："><a href="#实现目标：" class="headerlink" title="实现目标："></a>实现目标：</h2><p>本地 push 代码到中央仓库，中央仓库自动部署代码到项目的运行环境。</p>
+<h2 id="实现目标："><a href="#实现目标：" class="headerlink" title="实现目标："></a>实现目标：</h2><p>本地 push 代码到 git 服务器的中央仓库，中央仓库自动部署代码到项目的运行目录。</p>
 <h2 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h2><h4 id="搭建-GIT-服务器"><a href="#搭建-GIT-服务器" class="headerlink" title="搭建 GIT 服务器"></a><a href="http://jiajieshen.github.io/2016/10/25/build-git-server/">搭建 GIT 服务器</a></h4><p>此时，服务器里已经搭建了一个中央仓库 helloworld.git。</p>
 <p>注：中央仓库只是一个裸仓库，不包含任何的项目工作文件，只相当于普通 git 项目里隐藏的 .git 目录。</p>
 <p>假设项目部署在 /opt/www/ 目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd /opt</div><div class="line">mkdir www</div><div class="line">chown -R git:git www/ # 授权</div><div class="line">cd www</div><div class="line">git clone file:///opt/git/helloworld.git # clone 中央仓库</div><div class="line">chown -R git:git helloworld # 授权给 git 用户</div></pre></td></tr></table></figure></p>
@@ -130,6 +130,8 @@
   <ul class="entry">
   
     <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>1</small></li>
   
     <li><a href="/tags/服务器/">服务器</a><small>2</small></li>
   
