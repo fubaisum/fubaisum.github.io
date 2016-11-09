@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CentOS 服务器安装 phpMyAdmin | JiajieShen&#39;s Blog</title>
+  <meta name="author" content="Jiajie Shen">
+  
+  <meta name="description" content="注：本实践过程是基于 CentOS 服务器参考：Install Latest PhpMyAdmin in RHEL/CentOS 7/6 and Fedora 24-20 
+前提步骤 CentOS 服务器搭建 LNMP 环境安装1yum install phpMyAdmin
+创建软连接1ln -s ">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="CentOS 服务器安装 phpMyAdmin"/>
+  <meta property="og:site_name" content="JiajieShen&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="JiajieShen&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">JiajieShen&#39;s Blog</a></h1>
+  <h2><a href="/">Don&#39;t retry yourself.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-11-09T09:58:51.000Z"><a href="/2016/11/09/install-phpMyAdmin/">2016-11-09</a></time>
+      
+      
+  
+    <h1 class="title">CentOS 服务器安装 phpMyAdmin</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>注：本实践过程是基于 CentOS 服务器<br>参考：<a href="http://www.tecmint.com/install-phpmyadmin-rhel-centos-fedora-linux/" target="_blank" rel="external">Install Latest PhpMyAdmin in RHEL/CentOS 7/6 and Fedora 24-20</a> </p>
+<h3 id="前提步骤-CentOS-服务器搭建-LNMP-环境"><a href="#前提步骤-CentOS-服务器搭建-LNMP-环境" class="headerlink" title="前提步骤 CentOS 服务器搭建 LNMP 环境"></a>前提步骤 <a href="http://jiajieshen.github.io/2016/11/02/lnmp/">CentOS 服务器搭建 LNMP 环境</a></h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install phpMyAdmin</div></pre></td></tr></table></figure>
+<h3 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a>创建软连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln <span class="_">-s</span> /usr/share/phpMyAdmin /usr/share/nginx/html</div></pre></td></tr></table></figure>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl restart nginx</div><div class="line">systemctl restart php-fpm</div></pre></td></tr></table></figure>
+<h3 id="解决错误警告"><a href="#解决错误警告" class="headerlink" title="解决错误警告"></a>解决错误警告</h3><p>此时在浏览器中输入 http;//host:port/phpMyAdmin (host:port 对应实际的服务器域名和端口)，就可以看到 phpMyAdmin 可以访问了。</p>
+<p>不过可以发现页面出现错误警告如下：</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/phpmyadmin-session-error.png?attname=" alt=""> </p>
+<p>修改对应 session 目录的访问权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/lib/php</div><div class="line">chmod 777 session</div></pre></td></tr></table></figure>
+<p>刷新浏览器后，错误提示消失。进入 phpMyAdmin 后会有如下配置错误提示：</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/phpmyadmin-config-error.png?attname=" alt=""> </p>
+<ol>
+<li><p>高级功能未设置这个问题很好解决，点“查找原因”，然后根据提示生成相应的数据表就可以了。</p>
+<p> 如果没有生成的提示，就去点击随便一个数据库的“操作”选项卡，就会有提示了。（这里忘了截图）</p>
+<p></p>
+</li>
+<li><p>“配置文件现在需要一个短语密码”的解决</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/share/phpMyAdmin/</div><div class="line">vi libraries/config.default.php</div><div class="line"><span class="comment">#<span class="doctag">TODO:</span> 将 $cfg['blowfish_secret'] = ''; 的值修改为任意随机32位字符。</span></div></pre></td></tr></table></figure>
+<p>刷新网页，重新登录 phpMyAdmin ，错误消失。</p>
+<p>可以正常使用 phpMyAdmin 了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/php/">php</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name: 'jiajieshen' };
+  (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';
+      ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END -->
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:jiajieshen.github.io">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/服务器/">服务器</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Jiajie Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>
+
+
+<a href="https://github.com/jiajieshen" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>

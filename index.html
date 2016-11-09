@@ -52,6 +52,61 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-11-09T09:58:51.000Z"><a href="/2016/11/09/install-phpMyAdmin/">2016-11-09</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/11/09/install-phpMyAdmin/">CentOS 服务器安装 phpMyAdmin</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>注：本实践过程是基于 CentOS 服务器<br>参考：<a href="http://www.tecmint.com/install-phpmyadmin-rhel-centos-fedora-linux/" target="_blank" rel="external">Install Latest PhpMyAdmin in RHEL/CentOS 7/6 and Fedora 24-20</a> </p>
+<h3 id="前提步骤-CentOS-服务器搭建-LNMP-环境"><a href="#前提步骤-CentOS-服务器搭建-LNMP-环境" class="headerlink" title="前提步骤 CentOS 服务器搭建 LNMP 环境"></a>前提步骤 <a href="http://jiajieshen.github.io/2016/11/02/lnmp/">CentOS 服务器搭建 LNMP 环境</a></h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install phpMyAdmin</div></pre></td></tr></table></figure>
+<h3 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a>创建软连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln <span class="_">-s</span> /usr/share/phpMyAdmin /usr/share/nginx/html</div></pre></td></tr></table></figure>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl restart nginx</div><div class="line">systemctl restart php-fpm</div></pre></td></tr></table></figure>
+<h3 id="解决错误警告"><a href="#解决错误警告" class="headerlink" title="解决错误警告"></a>解决错误警告</h3><p>此时在浏览器中输入 http;//host:port/phpMyAdmin (host:port 对应实际的服务器域名和端口)，就可以看到 phpMyAdmin 可以访问了。</p>
+<p>不过可以发现页面出现错误警告如下：</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/phpmyadmin-session-error.png?attname=" alt=""> </p>
+<p>修改对应 session 目录的访问权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/lib/php</div><div class="line">chmod 777 session</div></pre></td></tr></table></figure>
+<p>刷新浏览器后，错误提示消失。进入 phpMyAdmin 后会有如下配置错误提示：</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/phpmyadmin-config-error.png?attname=" alt=""> </p>
+<ol>
+<li><p>高级功能未设置这个问题很好解决，点“查找原因”，然后根据提示生成相应的数据表就可以了。</p>
+<p> 如果没有生成的提示，就去点击随便一个数据库的“操作”选项卡，就会有提示了。（这里忘了截图）</p>
+<p></p>
+</li>
+<li><p>“配置文件现在需要一个短语密码”的解决</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/share/phpMyAdmin/</div><div class="line">vi libraries/config.default.php</div><div class="line"><span class="comment">#<span class="doctag">TODO:</span> 将 $cfg['blowfish_secret'] = ''; 的值修改为任意随机32位字符。</span></div></pre></td></tr></table></figure>
+<p>刷新网页，重新登录 phpMyAdmin ，错误消失。</p>
+<p>可以正常使用 phpMyAdmin 了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-11-02T09:37:51.000Z"><a href="/2016/11/02/lnmp/">2016-11-02</a></time>
       
       
@@ -273,7 +328,7 @@
   
     <li><a href="/tags/git/">git</a><small>2</small></li>
   
-    <li><a href="/tags/php/">php</a><small>1</small></li>
+    <li><a href="/tags/php/">php</a><small>2</small></li>
   
     <li><a href="/tags/服务器/">服务器</a><small>2</small></li>
   
