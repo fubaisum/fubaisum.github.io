@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Gearman 的使用 | JiajieShen&#39;s Blog</title>
+  <meta name="author" content="Jiajie Shen">
+  
+  <meta name="description" content="安装 Gearman1sudo dnf install gearmand
+安装 PHP 的 Gearman 扩展详细软件包地址1234567wget get http://pecl.php.net/get/gearman-X.Y.tgztar xzf gearman-X.Y.tgzcd gearma">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Gearman 的使用"/>
+  <meta property="og:site_name" content="JiajieShen&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="JiajieShen&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">JiajieShen&#39;s Blog</a></h1>
+  <h2><a href="/">Don&#39;t retry yourself.</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-11-15T03:58:05.000Z"><a href="/2016/11/15/gearman-usage/">2016-11-15</a></time>
+      
+      
+  
+    <h1 class="title">Gearman 的使用</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="安装-Gearman"><a href="#安装-Gearman" class="headerlink" title="安装 Gearman"></a>安装 Gearman</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install gearmand</div></pre></td></tr></table></figure>
+<h2 id="安装-PHP-的-Gearman-扩展"><a href="#安装-PHP-的-Gearman-扩展" class="headerlink" title="安装 PHP 的 Gearman 扩展"></a>安装 PHP 的 Gearman 扩展</h2><p><a href="http://pecl.php.net/package/gearman" target="_blank" rel="external">详细软件包地址</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget get http://pecl.php.net/get/gearman-X.Y.tgz</div><div class="line">tar xzf gearman-X.Y.tgz</div><div class="line"><span class="built_in">cd</span> gearman-X.Y</div><div class="line">phpize</div><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
+<h4 id="出现的错误解决如下："><a href="#出现的错误解决如下：" class="headerlink" title="出现的错误解决如下："></a>出现的错误解决如下：</h4><p>错误一：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">Can<span class="string">'t find PHP headers in /usr/include/php</span></div><div class="line">The php-devel package is required for use of this command.</div></pre></td></tr></table></figure></p>
+<p>解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install php-devel</div></pre></td></tr></table></figure></p>
+<p>错误二：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">configure: error: Please install libgearman</div></pre></td></tr></table></figure></p>
+<p>解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install libgearman libgearman-devel libevent libevent-devel</div></pre></td></tr></table></figure></p>
+<h4 id="修改-php-ini-配置文件"><a href="#修改-php-ini-配置文件" class="headerlink" title="修改 php.ini 配置文件"></a>修改 php.ini 配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/php.ini</div><div class="line"><span class="comment">#最末尾添加</span></div><div class="line">extension=<span class="string">"gearman.so"</span></div></pre></td></tr></table></figure>
+<h4 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">php --info | grep gearman</div><div class="line"><span class="comment"># 输出如下表示添加扩展成功</span></div><div class="line">......</div><div class="line">gearman</div><div class="line">gearman support =&gt; enabled</div><div class="line">libgearman version =&gt; 1.1.12</div></pre></td></tr></table></figure>
+<h2 id="测试例子"><a href="#测试例子" class="headerlink" title="测试例子"></a>测试例子</h2><p><a href="http://gearman.org/examples/" target="_blank" rel="external">见官方的 Sample</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/ffmpeg/">ffmpeg</a>, <a href="/tags/PHP/">PHP</a>, <a href="/tags/gearman/">gearman</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name: 'jiajieshen' };
+  (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';
+      ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END -->
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:jiajieshen.github.io">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/PHP/">PHP</a><small>1</small></li>
+  
+    <li><a href="/tags/ffmpeg/">ffmpeg</a><small>2</small></li>
+  
+    <li><a href="/tags/gearman/">gearman</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>2</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/服务器/">服务器</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Jiajie Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>
+
+
+<a href="https://github.com/jiajieshen" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
