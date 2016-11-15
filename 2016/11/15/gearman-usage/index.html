@@ -8,8 +8,8 @@
   <title>Gearman 的使用(未完成) | JiajieShen&#39;s Blog</title>
   <meta name="author" content="Jiajie Shen">
   
-  <meta name="description" content="安装 Gearman1sudo dnf install gearmand
-安装 PHP 的 Gearman 扩展详细软件包地址1234567wget get http://pecl.php.net/get/gearman-X.Y.tgztar xzf gearman-X.Y.tgzcd gearma">
+  <meta name="description" content="安装安装 Gearman1sudo dnf install gearmand
+安装 PHP 的 Gearman 扩展详细软件包地址1234567wget get http://pecl.php.net/get/gearman-X.Y.tgztar xzf gearman-X.Y.tgzcd gear">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -64,8 +64,8 @@
     </header>
     <div class="entry">
       
-        <h2 id="安装-Gearman"><a href="#安装-Gearman" class="headerlink" title="安装 Gearman"></a>安装 Gearman</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install gearmand</div></pre></td></tr></table></figure>
-<h2 id="安装-PHP-的-Gearman-扩展"><a href="#安装-PHP-的-Gearman-扩展" class="headerlink" title="安装 PHP 的 Gearman 扩展"></a>安装 PHP 的 Gearman 扩展</h2><p><a href="http://pecl.php.net/package/gearman" target="_blank" rel="external">详细软件包地址</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget get http://pecl.php.net/get/gearman-X.Y.tgz</div><div class="line">tar xzf gearman-X.Y.tgz</div><div class="line"><span class="built_in">cd</span> gearman-X.Y</div><div class="line">phpize</div><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装-Gearman"><a href="#安装-Gearman" class="headerlink" title="安装 Gearman"></a>安装 Gearman</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install gearmand</div></pre></td></tr></table></figure>
+<h3 id="安装-PHP-的-Gearman-扩展"><a href="#安装-PHP-的-Gearman-扩展" class="headerlink" title="安装 PHP 的 Gearman 扩展"></a>安装 PHP 的 Gearman 扩展</h3><p><a href="http://pecl.php.net/package/gearman" target="_blank" rel="external">详细软件包地址</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget get http://pecl.php.net/get/gearman-X.Y.tgz</div><div class="line">tar xzf gearman-X.Y.tgz</div><div class="line"><span class="built_in">cd</span> gearman-X.Y</div><div class="line">phpize</div><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
 <h3 id="出现的错误解决如下："><a href="#出现的错误解决如下：" class="headerlink" title="出现的错误解决如下："></a>出现的错误解决如下：</h3><p>错误一：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">Can<span class="string">'t find PHP headers in /usr/include/php</span></div><div class="line">The php-devel package is required for use of this command.</div></pre></td></tr></table></figure></p>
 <p>解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install php-devel</div></pre></td></tr></table></figure></p>
 <p>错误二：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">configure: error: Please install libgearman</div></pre></td></tr></table></figure></p>
