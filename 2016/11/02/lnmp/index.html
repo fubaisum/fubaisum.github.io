@@ -8,10 +8,10 @@
   <title>CentOS 服务器搭建 LNMP 环境 | JiajieShen&#39;s Blog</title>
   <meta name="author" content="Jiajie Shen">
   
-  <meta name="description" content="注：本实践过程基于 CentOS 服务器参考 ： Install Latest Nginx 1.10.1, MariaDB 10 and PHP 5.5/5.6 on RHEL/CentOS 7/6 &amp;amp; Fedora 20-24 
+  <meta name="description" content="注：本实践过程基 CentOS 服务器参考 ： Install Latest Nginx 1.10.1, MariaDB 10 and PHP 5.5/5.6 on RHEL/CentOS 7/6 &amp;amp; Fedora 20-24 
 最终搭建的环境
 CentOS : 7.2
-Nginx : 1">
+Nginx : 1.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -66,7 +66,7 @@ Nginx : 1">
     </header>
     <div class="entry">
       
-        <p>注：本实践过程基于 CentOS 服务器<br>参考 ： <a href="http://www.tecmint.com/install-nginx-mariadb-php-rhel-centos-fedora/" target="_blank" rel="external">Install Latest Nginx 1.10.1, MariaDB 10 and PHP 5.5/5.6 on RHEL/CentOS 7/6 &amp; Fedora 20-24</a> </p>
+        <p>注：本实践过程基 CentOS 服务器<br>参考 ： <a href="http://www.tecmint.com/install-nginx-mariadb-php-rhel-centos-fedora/" target="_blank" rel="external">Install Latest Nginx 1.10.1, MariaDB 10 and PHP 5.5/5.6 on RHEL/CentOS 7/6 &amp; Fedora 20-24</a> </p>
 <h2 id="最终搭建的环境"><a href="#最终搭建的环境" class="headerlink" title="最终搭建的环境"></a>最终搭建的环境</h2><ul>
 <li>CentOS : 7.2</li>
 <li>Nginx : 1.10.1</li>
@@ -97,7 +97,7 @@ Nginx : 1">
 <p>这里的 fastcgi_pass 配置比较关键，不同服务器的 php-fpm 版本好像有不一样写法（坑：好像有 php-fpm 和 php5-fpm 的区别）。可以查看 /etc/php-fpm.d/www.conf 文件中的 listen 字段，如果 listen = 127.0.0.1:9000 就是上述配置。配置错误会出现访问 php 文件，变成下载，意味着 nginx 不能将访问 php 的请求转给 php-fpm 处理，具体解答可看<br><a href="http://stackoverflow.com/questions/25591040/nginx-serves-php-files-as-downloads-instead-of-executing-them" target="_blank" rel="external">Nginx serves .php files as downloads, instead of executing them</a> </p>
 <p>修改后的 server 块，大致如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen       8089 default_server;</div><div class="line">        listen       [::]:8089 default_server;</div><div class="line">        server_name  _;</div><div class="line">        root         /usr/share/nginx/html;</div><div class="line">        index index.php index.html index.htm;</div><div class="line"></div><div class="line">        location ~ \.php$ &#123;</div><div class="line">            try_files <span class="variable">$uri</span> =404;</div><div class="line">            fastcgi_split_path_info ^(.+\.php)(/.+)$;</div><div class="line">            fastcgi_pass 127.0.0.1:9000;</div><div class="line">            fastcgi_index index.php;</div><div class="line">            fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">            include fastcgi_params;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment"># Load configuration files for the default server block.</span></div><div class="line">        include /etc/nginx/default.d/*.conf;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        error_page 404 /404.html;</div><div class="line">            location = /40x.html &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        error_page 500 502 503 504 /50x.html;</div><div class="line">            location = /50x.html &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <p>测试配置是否正确<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">nginx -t</div><div class="line"><span class="comment"># 输出</span></div><div class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /etc/nginx/nginx.conf <span class="built_in">test</span> is successful</div></pre></td></tr></table></figure></p>
-<h3 id="修改-php-fpm-的运行用户"><a href="#修改-php-fpm-的运行用户" class="headerlink" title="修改 php-fpm 的运行用户"></a>修改 php-fpm 的运行用户</h3><p>PS: 网上一般推荐将 nginx 和 php-fpm 的运行用户都设为 nobody 。但这里暂时不详细设置用户权限，下一篇再研究，这里直接将 php-fpm 的运行用户改为 nginx 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/php-fpm.d/www.conf</div></pre></td></tr></table></figure></p>
+<h3 id="修改-php-fpm-的运行用户"><a href="#修改-php-fpm-的运行用户" class="headerlink" title="修改 php-fpm 的运行用户"></a>修改 php-fpm 的运行用户</h3><p>PS: 网上一般推荐将 nginx 和 php-fpm 的运行用户都设为 nobody 。但这里暂时不详细设置用户权限，之后再研究，这里直接将 php-fpm 的运行用户改为 nginx 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/php-fpm.d/www.conf</div></pre></td></tr></table></figure></p>
 <p>在如下位置将 apache 修改为 nginx 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">; Unix user/group of processes</div><div class="line">; Note: The user is mandatory. If the group is not <span class="built_in">set</span>, the default user<span class="string">'s group</span></div><div class="line">;       will be used.</div><div class="line">; RPM: apache Choosed to be able to access some dir as httpd</div><div class="line">user = nginx</div><div class="line">; RPM: Keep a group allowed to write in log dir.</div><div class="line">group = nginx</div></pre></td></tr></table></figure></p>
 <p>重启 php-fpm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl restart php-fpm</div></pre></td></tr></table></figure></p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>在 nginx 的默认 server 项目中添加 index.php 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/share/nginx/html/index.php</div></pre></td></tr></table></figure></p>
@@ -162,7 +162,7 @@ Nginx : 1">
   
     <li><a href="/tags/gearman/">gearman</a><small>1</small></li>
   
-    <li><a href="/tags/git/">git</a><small>2</small></li>
+    <li><a href="/tags/git/">git</a><small>3</small></li>
   
     <li><a href="/tags/php/">php</a><small>3</small></li>
   

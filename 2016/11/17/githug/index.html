@@ -5,13 +5,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JiajieShen&#39;s Blog</title>
+  <title>通关 githug | JiajieShen&#39;s Blog</title>
   <meta name="author" content="Jiajie Shen">
+  
+  <meta name="description" content="githug 是一个用来练习 git 命令的小游戏。项目地址：https://github.com/Gazler/githug 
+参考：「Githug」Git 游戏通关流程 
+准备安装 ruby1sudo dnf install ruby
+安装 githug1sudo gem install git">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="通关 githug"/>
   <meta property="og:site_name" content="JiajieShen&#39;s Blog"/>
 
   
@@ -45,8 +50,7 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
@@ -56,7 +60,7 @@
       
       
   
-    <h1 class="title"><a href="/2016/11/17/githug/">通关 githug</a></h1>
+    <h1 class="title">通关 githug</h1>
   
 
     </header>
@@ -262,39 +266,11 @@
       
         
         
-      
-      <div class="clearfix"></div>
-    </footer>
+  
+  <div class="tags">
+    <a href="/tags/git/">git</a>
   </div>
-</article>
 
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-15T14:42:53.000Z"><a href="/2016/11/15/ffmpeg-usage/">2016-11-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/15/ffmpeg-usage/">FFmpeg 的使用（未完成）</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="安装-FFmpeg"><a href="#安装-FFmpeg" class="headerlink" title="安装 FFmpeg"></a>安装 FFmpeg</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install ffmpeg ffmpeg-devel</div></pre></td></tr></table></figure>
-<h4 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ffmepg</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
         
       
       <div class="clearfix"></div>
@@ -303,321 +279,24 @@
 </article>
 
 
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name: 'jiajieshen' };
+  (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';
+      ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END -->
 
 
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-15T03:58:05.000Z"><a href="/2016/11/15/gearman-usage/">2016-11-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/15/gearman-usage/">Gearman 的使用(未完成)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装-Gearman"><a href="#安装-Gearman" class="headerlink" title="安装 Gearman"></a>安装 Gearman</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install gearmand</div></pre></td></tr></table></figure>
-<h3 id="安装-PHP-的-Gearman-扩展"><a href="#安装-PHP-的-Gearman-扩展" class="headerlink" title="安装 PHP 的 Gearman 扩展"></a>安装 PHP 的 Gearman 扩展</h3><p><a href="http://pecl.php.net/package/gearman" target="_blank" rel="external">详细软件包地址</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget get http://pecl.php.net/get/gearman-X.Y.tgz</div><div class="line">tar xzf gearman-X.Y.tgz</div><div class="line"><span class="built_in">cd</span> gearman-X.Y</div><div class="line">phpize</div><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
-<h3 id="出现的错误解决如下："><a href="#出现的错误解决如下：" class="headerlink" title="出现的错误解决如下："></a>出现的错误解决如下：</h3><p>错误一：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">Can<span class="string">'t find PHP headers in /usr/include/php</span></div><div class="line">The php-devel package is required for use of this command.</div></pre></td></tr></table></figure></p>
-<p>解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install php-devel</div></pre></td></tr></table></figure></p>
-<p>错误二：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">configure: error: Please install libgearman</div></pre></td></tr></table></figure></p>
-<p>解决：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dnf install libgearman libgearman-devel libevent libevent-devel</div></pre></td></tr></table></figure></p>
-<h3 id="修改-php-ini-配置文件"><a href="#修改-php-ini-配置文件" class="headerlink" title="修改 php.ini 配置文件"></a>修改 php.ini 配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/php.ini</div><div class="line"><span class="comment">#最末尾添加</span></div><div class="line">extension=<span class="string">"gearman.so"</span></div></pre></td></tr></table></figure>
-<h3 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">php --info | grep gearman</div><div class="line"><span class="comment"># 输出如下表示添加扩展成功</span></div><div class="line">......</div><div class="line">gearman</div><div class="line">gearman support =&gt; enabled</div><div class="line">libgearman version =&gt; 1.1.12</div></pre></td></tr></table></figure>
-<h2 id="测试例子"><a href="#测试例子" class="headerlink" title="测试例子"></a>测试例子</h2><p><a href="http://gearman.org/examples/" target="_blank" rel="external">见官方的 Sample</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-09T09:58:51.000Z"><a href="/2016/11/09/install-phpMyAdmin/">2016-11-09</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/09/install-phpMyAdmin/">CentOS 服务器安装 phpMyAdmin</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>注：本实践过程是基于 CentOS 服务器<br>参考：<a href="http://www.tecmint.com/install-phpmyadmin-rhel-centos-fedora-linux/" target="_blank" rel="external">Install Latest PhpMyAdmin in RHEL/CentOS 7/6 and Fedora 24-20</a> </p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p><a href="http://jiajieshen.github.io/2016/11/02/lnmp/">CentOS 服务器搭建 LNMP 环境</a> </p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install phpMyAdmin</div></pre></td></tr></table></figure>
-<h3 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a>创建软连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln <span class="_">-s</span> /usr/share/phpMyAdmin /usr/share/nginx/html</div></pre></td></tr></table></figure>
-<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl restart nginx</div><div class="line">systemctl restart php-fpm</div></pre></td></tr></table></figure>
-<h3 id="解决错误警告"><a href="#解决错误警告" class="headerlink" title="解决错误警告"></a>解决错误警告</h3><p>此时在浏览器中输入 http;//host:port/phpMyAdmin (host:port 对应实际的服务器域名和端口)，就可以看到 phpMyAdmin 可以访问了。</p>
-<p>不过可以发现页面出现错误警告如下：</p>
-<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/phpmyadmin-session-error.png?attname=" alt=""> </p>
-<p>修改对应 session 目录的访问权限：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/lib/php</div><div class="line">chmod 777 session</div></pre></td></tr></table></figure>
-<p>刷新浏览器后，错误提示消失。进入 phpMyAdmin 后会有如下配置错误提示：</p>
-<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/phpmyadmin-config-error.png?attname=" alt=""> </p>
-<ol>
-<li><p>高级功能未设置这个问题很好解决，点“查找原因”，然后根据提示生成相应的数据表就可以了。</p>
-<p> 如果没有生成的提示，就去点击随便一个数据库的“操作”选项卡，就会有提示了。（这里忘了截图）</p>
-<p></p>
-</li>
-<li><p>“配置文件现在需要一个短语密码”的解决</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/share/phpMyAdmin/</div><div class="line">vi libraries/config.default.php</div><div class="line"><span class="comment">#<span class="doctag">TODO:</span> 将 $cfg['blowfish_secret'] = ''; 的值修改为任意随机32位字符。</span></div></pre></td></tr></table></figure>
-<p>刷新网页，重新登录 phpMyAdmin ，错误消失。</p>
-<p>可以正常使用 phpMyAdmin 了。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-11-02T09:37:51.000Z"><a href="/2016/11/02/lnmp/">2016-11-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/11/02/lnmp/">CentOS 服务器搭建 LNMP 环境</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>注：本实践过程基 CentOS 服务器<br>参考 ： <a href="http://www.tecmint.com/install-nginx-mariadb-php-rhel-centos-fedora/" target="_blank" rel="external">Install Latest Nginx 1.10.1, MariaDB 10 and PHP 5.5/5.6 on RHEL/CentOS 7/6 &amp; Fedora 20-24</a> </p>
-<h2 id="最终搭建的环境"><a href="#最终搭建的环境" class="headerlink" title="最终搭建的环境"></a>最终搭建的环境</h2><ul>
-<li>CentOS : 7.2</li>
-<li>Nginx : 1.10.1</li>
-<li>Mariadb : 5.5</li>
-<li>PHP : 5.6</li>
-</ul>
-<h2 id="安装-epel-和-remi-源"><a href="#安装-epel-和-remi-源" class="headerlink" title="安装 epel 和 remi 源"></a>安装 epel 和 remi 源</h2><p>方便后面安装 php 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</div></pre></td></tr></table></figure>
-<h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install nginx</div></pre></td></tr></table></figure>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">nginx</div><div class="line"><span class="comment"># 或者</span></div><div class="line">systemctl start nginx</div></pre></td></tr></table></figure>
-<p>启动成功后，在浏览器中输入服务器地址可以看到 Welcome to nginx 界面。<br>PS：若服务器已有 apache，可能会导致使用 80 端口冲突，可关闭 apache 的 httpd 服务或者修改 nginx 的默认端口配置。</p>
-<h3 id="修改-nginx-默认使用的端口（建议）"><a href="#修改-nginx-默认使用的端口（建议）" class="headerlink" title="修改 nginx 默认使用的端口（建议）"></a>修改 nginx 默认使用的端口（建议）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/nginx/nginx.conf</div><div class="line"><span class="comment"># TODO： 修改监听的端口（如下图，将监听的端口改为 8089）</span></div></pre></td></tr></table></figure>
-<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/modify-nginx-port.png" alt=""> </p>
-<p>重启 nginx 后，可以查看到 nginx 使用的端口是 8089 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">nginx <span class="_">-s</span> stop</div><div class="line">nginx</div><div class="line">netstat -tnl | grep 80</div><div class="line"><span class="comment"># 输出</span></div><div class="line">tcp        0      0 0.0.0.0:8089            0.0.0.0:*               LISTEN</div><div class="line">tcp6       0      0 :::8089                 :::*                    LISTEN</div></pre></td></tr></table></figure></p>
-<h2 id="安装-Mysql"><a href="#安装-Mysql" class="headerlink" title="安装 Mysql"></a>安装 Mysql</h2><h3 id="安装-mariadb"><a href="#安装-mariadb" class="headerlink" title="安装 mariadb"></a>安装 mariadb</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install mariadb mariadb-server</div></pre></td></tr></table></figure>
-<h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl start mariadb</div></pre></td></tr></table></figure>
-<h3 id="设-root-密码"><a href="#设-root-密码" class="headerlink" title="设 root 密码"></a>设 root 密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql_secure_installation</div><div class="line"><span class="comment"># TODO : 根据提示完成密码设置</span></div></pre></td></tr></table></figure>
-<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -p</div></pre></td></tr></table></figure>
-<h2 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h2><h3 id="修改-remi-配置"><a href="#修改-remi-配置" class="headerlink" title="修改 remi 配置"></a>修改 remi 配置</h3><p>由于 remi 仓库默认提供 PHP 5.4 版本，安装其它版本需要修改配置。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/yum.repos.d/remi.repo</div></pre></td></tr></table></figure></p>
-<p>将 [remi-php56] 的 enabled=0 改成 enabled=1 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[remi-php56]</div><div class="line">name=Remi<span class="string">'s PHP 5.6 RPM repository for Enterprise Linux 7 - $basearch</span></div><div class="line">#baseurl=http://rpms.remirepo.net/enterprise/7/php56/$basearch/</div><div class="line">mirrorlist=http://rpms.remirepo.net/enterprise/7/php56/mirror</div><div class="line"># NOTICE: common dependencies are in "remi-safe"</div><div class="line">enabled=1</div><div class="line">gpgcheck=1</div><div class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi</div></pre></td></tr></table></figure></p>
-<h3 id="安装-php-amp-amp-php-fpm"><a href="#安装-php-amp-amp-php-fpm" class="headerlink" title="安装 php &amp;&amp; php-fpm"></a>安装 php &amp;&amp; php-fpm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install php php-common php-fpm</div></pre></td></tr></table></figure>
-<h3 id="安装-php-modules"><a href="#安装-php-modules" class="headerlink" title="安装 php modules"></a>安装 php modules</h3><p>根据需要安装，或者以后用到再装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum --enablerepo=remi install php-mysql php-pgsql php-pecl-mongo php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml php-pecl-apc php-cli php-pear php-pdo</div></pre></td></tr></table></figure></p>
-<h2 id="Nginx-MariaDB-and-PHP-FPM-服务启动"><a href="#Nginx-MariaDB-and-PHP-FPM-服务启动" class="headerlink" title="Nginx, MariaDB and PHP-FPM 服务启动"></a>Nginx, MariaDB and PHP-FPM 服务启动</h2><h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> nginx</div><div class="line">syatemctl <span class="built_in">enable</span> mariadb</div><div class="line">systemctl <span class="built_in">enable</span> php-fpm</div></pre></td></tr></table></figure>
-<h3 id="命令启动"><a href="#命令启动" class="headerlink" title="命令启动"></a>命令启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl start nginx</div><div class="line">systemctl start nginx</div><div class="line">systemctl start nginx</div></pre></td></tr></table></figure>
-<h2 id="让-Nginx-支持-PHP-FPM"><a href="#让-Nginx-支持-PHP-FPM" class="headerlink" title="让 Nginx 支持 PHP-FPM"></a>让 Nginx 支持 PHP-FPM</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>PS : 这里的配置只针对 nginx 的默认 server 站点，具体项目需要另外配置。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span>  /etc/nginx</div><div class="line">vi nginx.conf</div></pre></td></tr></table></figure>
-<p>在 http{server{}} 中写入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">index index.php index.html index.htm;</div><div class="line"></div><div class="line">location ~ \.php$ &#123;</div><div class="line">        try_files <span class="variable">$uri</span> =404;</div><div class="line">        fastcgi_split_path_info ^(.+\.php)(/.+)$;</div><div class="line">        fastcgi_pass 127.0.0.1:9000;</div><div class="line">        fastcgi_index index.php;</div><div class="line">        fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">        include fastcgi_params;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里的 fastcgi_pass 配置比较关键，不同服务器的 php-fpm 版本好像有不一样写法（坑：好像有 php-fpm 和 php5-fpm 的区别）。可以查看 /etc/php-fpm.d/www.conf 文件中的 listen 字段，如果 listen = 127.0.0.1:9000 就是上述配置。配置错误会出现访问 php 文件，变成下载，意味着 nginx 不能将访问 php 的请求转给 php-fpm 处理，具体解答可看<br><a href="http://stackoverflow.com/questions/25591040/nginx-serves-php-files-as-downloads-instead-of-executing-them" target="_blank" rel="external">Nginx serves .php files as downloads, instead of executing them</a> </p>
-<p>修改后的 server 块，大致如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen       8089 default_server;</div><div class="line">        listen       [::]:8089 default_server;</div><div class="line">        server_name  _;</div><div class="line">        root         /usr/share/nginx/html;</div><div class="line">        index index.php index.html index.htm;</div><div class="line"></div><div class="line">        location ~ \.php$ &#123;</div><div class="line">            try_files <span class="variable">$uri</span> =404;</div><div class="line">            fastcgi_split_path_info ^(.+\.php)(/.+)$;</div><div class="line">            fastcgi_pass 127.0.0.1:9000;</div><div class="line">            fastcgi_index index.php;</div><div class="line">            fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">            include fastcgi_params;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment"># Load configuration files for the default server block.</span></div><div class="line">        include /etc/nginx/default.d/*.conf;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        error_page 404 /404.html;</div><div class="line">            location = /40x.html &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        error_page 500 502 503 504 /50x.html;</div><div class="line">            location = /50x.html &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>测试配置是否正确<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">nginx -t</div><div class="line"><span class="comment"># 输出</span></div><div class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /etc/nginx/nginx.conf <span class="built_in">test</span> is successful</div></pre></td></tr></table></figure></p>
-<h3 id="修改-php-fpm-的运行用户"><a href="#修改-php-fpm-的运行用户" class="headerlink" title="修改 php-fpm 的运行用户"></a>修改 php-fpm 的运行用户</h3><p>PS: 网上一般推荐将 nginx 和 php-fpm 的运行用户都设为 nobody 。但这里暂时不详细设置用户权限，之后再研究，这里直接将 php-fpm 的运行用户改为 nginx 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/php-fpm.d/www.conf</div></pre></td></tr></table></figure></p>
-<p>在如下位置将 apache 修改为 nginx 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">; Unix user/group of processes</div><div class="line">; Note: The user is mandatory. If the group is not <span class="built_in">set</span>, the default user<span class="string">'s group</span></div><div class="line">;       will be used.</div><div class="line">; RPM: apache Choosed to be able to access some dir as httpd</div><div class="line">user = nginx</div><div class="line">; RPM: Keep a group allowed to write in log dir.</div><div class="line">group = nginx</div></pre></td></tr></table></figure></p>
-<p>重启 php-fpm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl restart php-fpm</div></pre></td></tr></table></figure></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>在 nginx 的默认 server 项目中添加 index.php 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /usr/share/nginx/html/index.php</div></pre></td></tr></table></figure></p>
-<p>写入<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">phpinfo();</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
-<p>在浏览器中访问 <a href="http://host/index.php" target="_blank" rel="external">http://host/index.php</a> ，能正确输出 php 信息，则表示配置成功，可以在 nginx 服务器里运行 php 项目了。</p>
-<p>PS: 测试不成功，可以先清除浏览器缓存再试，再不成功再找配置问题。</p>
-<p>测试完，删除测试的 index.php 文件，避免泄漏服务器上的信息。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-10-27T04:56:15.000Z"><a href="/2016/10/27/auto-deploy-projects/">2016-10-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/10/27/auto-deploy-projects/">用 GIT-HOOKS 自动化部署项目</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>注：本实践过程基于 centos 服务器<br>参考：<a href="https://segmentfault.com/a/1190000003836345" target="_blank" rel="external">用 Git Hooks 进行自动部署</a> </p>
-<h2 id="实现目标"><a href="#实现目标" class="headerlink" title="实现目标"></a>实现目标</h2><p>本地 push 代码到 git 服务器的中央仓库，中央仓库自动部署代码到项目的运行目录。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="搭建-GIT-服务器"><a href="#搭建-GIT-服务器" class="headerlink" title="搭建 GIT 服务器"></a><a href="http://jiajieshen.github.io/2016/10/25/build-git-server/">搭建 GIT 服务器</a></h3><p>此时，服务器里已经搭建了一个中央仓库 helloworld.git。</p>
-<p>注：中央仓库只是一个裸仓库，不包含任何的项目工作文件，只相当于普通 git 项目里隐藏的 .git 目录。</p>
-<p>假设项目部署在 /opt/www/ 目录下，克隆中央仓库到此目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd /opt</div><div class="line">mkdir www</div><div class="line">chown -R git:git www/ # 授权</div><div class="line">cd www</div><div class="line">git clone file:///opt/git/helloworld.git # clone 中央仓库</div><div class="line">chown -R git:git helloworld # 授权给 git 用户</div></pre></td></tr></table></figure></p>
-<h2 id="编写-hook"><a href="#编写-hook" class="headerlink" title="编写 hook"></a>编写 hook</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 进入中央仓库的 hooks 目录</div><div class="line">cd /opt/git/helloworld.git/hooks/</div><div class="line"># post-receive 脚本会在客户端 push 代码完成之后调用; </div><div class="line"># 其它应用场景可看详细的官方文档或同目录下的 .sample 文件。</div><div class="line">vi post-receive</div><div class="line"># TODO: 编写脚本</div><div class="line"></div><div class="line">chown git:git post-receive # 授权给 git 用户</div><div class="line">chmod +x post-receive # 添加可运行权限</div></pre></td></tr></table></figure>
-<p>脚本如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">unset GIT_DIR</div><div class="line"></div><div class="line">NowPath=`pwd`</div><div class="line">DeployPath=&quot;/opt/www/helloworld&quot; # 应用部署目录</div><div class="line"></div><div class="line">cd $DeployPath</div><div class="line">git pull # 确保 git 用户有读写的权限</div><div class="line"></div><div class="line">cd $NowPath</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>git 客户端用户 push 代码更新到中央仓库，可以发现服务器上部署的项目跟着更新。</p>
-<p>测试成功的输出大致如下：</p>
-<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/after-auto-deploy.png" alt=""> </p>
-<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><ul>
-<li>了解 git 服务支持的 hooks</li>
-<li>根据客户端 push 不同分支，服务器自动部署到不同的项目环境</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-10-25T03:23:19.000Z"><a href="/2016/10/25/build-git-server/">2016-10-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/10/25/build-git-server/">搭建 GIT 服务器</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>注：本实践过程基于 centos 服务器<br>参考：<a href="http://www.tangshuang.net/1693.html" target="_blank" rel="external">在阿里云上搭建自己的git服务器</a> </p>
-<p>搭建 git 服务器，其实就是在服务器上安装 git ，与本地电脑安装 git 基本没区别，只是要做一些必要的权限控制。</p>
-<h2 id="搭建-GIT"><a href="#搭建-GIT" class="headerlink" title="搭建 GIT"></a>搭建 GIT</h2><h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git</div></pre></td></tr></table></figure>
-<h3 id="添加-git-用户"><a href="#添加-git-用户" class="headerlink" title="添加 git 用户"></a>添加 git 用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 用户的命名随意</span></div><div class="line">adduser git</div></pre></td></tr></table></figure>
-<h3 id="禁止-git-用户通过-ssh-连接服务器控制台"><a href="#禁止-git-用户通过-ssh-连接服务器控制台" class="headerlink" title="禁止 git 用户通过 ssh 连接服务器控制台"></a>禁止 git 用户通过 ssh 连接服务器控制台</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/passwd</div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> 将 git 用户登录后运行的 shell 程序，由 /bin/bash 指定为 /usr/bin/git-shell</span></div></pre></td></tr></table></figure>
-<h3 id="修改-git-用户的密码"><a href="#修改-git-用户的密码" class="headerlink" title="修改 git 用户的密码"></a>修改 git 用户的密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd git</div></pre></td></tr></table></figure>
-<h2 id="建立-ssh-连接"><a href="#建立-ssh-连接" class="headerlink" title="建立 ssh 连接"></a>建立 ssh 连接</h2><p>建立 ssh 连接可以让本地的 git 与服务器上的 git 之间建立安全的加密连接，而不需要输入账号和密码。</p>
-<h3 id="客户端生成-ssh-密钥"><a href="#客户端生成-ssh-密钥" class="headerlink" title="客户端生成 ssh 密钥"></a>客户端生成 ssh 密钥</h3><p>常用生成命令（若本地已经有 ssh key，可以不重新生成，免得破坏以前建立的 ssh 连接）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure></p>
-<p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加注释内容</span></div><div class="line">ssh-keygen -t rsa -C <span class="string">"xxx@xxx.com"</span> <span class="comment"># Creates a new ssh key using the provided email</span></div></pre></td></tr></table></figure></p>
-<h3 id="查看生成的公钥"><a href="#查看生成的公钥" class="headerlink" title="查看生成的公钥"></a>查看生成的公钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<h3 id="服务器保存客户端用户的公钥"><a href="#服务器保存客户端用户的公钥" class="headerlink" title="服务器保存客户端用户的公钥"></a>服务器保存客户端用户的公钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在客户端输入命令，user@host 替换为远程真正的用户和域名</span></div><div class="line">ssh-copy-id user@host</div></pre></td></tr></table></figure>
-<p>或<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在服务器上手动添加</span></div><div class="line"><span class="built_in">cd</span> /home/git/</div><div class="line">mkdir .ssh</div><div class="line"><span class="built_in">cd</span> .ssh</div><div class="line">vi authorized_keys</div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> 粘贴客户端用户的公钥（每行一条公钥）</span></div></pre></td></tr></table></figure></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="git-服务器创建中央仓库"><a href="#git-服务器创建中央仓库" class="headerlink" title="git 服务器创建中央仓库"></a>git 服务器创建中央仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 目录随意</span></div><div class="line"><span class="built_in">cd</span> /opt</div><div class="line">mkdir git</div><div class="line">chown -R git:git git</div><div class="line"><span class="built_in">cd</span> git</div><div class="line"></div><div class="line"><span class="comment"># 创建裸仓库 helloworld.git，其中以 .git 结尾是惯例。</span></div><div class="line">git init --bare helloworld.git</div><div class="line"><span class="comment"># 授权</span></div><div class="line">chown -R git:git helloworld.git/</div></pre></td></tr></table></figure>
-<h4 id="git-init-与-git-init-–bare-的区别"><a href="#git-init-与-git-init-–bare-的区别" class="headerlink" title="git init 与 git init –bare 的区别"></a><a href="https://segmentfault.com/q/1010000004683286" target="_blank" rel="external">git init 与 git init –bare 的区别</a></h4><h3 id="客户端-git-用户访问中央仓库"><a href="#客户端-git-用户访问中央仓库" class="headerlink" title="客户端 git 用户访问中央仓库"></a>客户端 git 用户访问中央仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># host 替换为服务器域名</span></div><div class="line">git <span class="built_in">clone</span> git@host:/opt/git/helloworld.git</div><div class="line"><span class="comment"># <span class="doctag">TODO:</span> 输入 git 用户密码</span></div><div class="line"><span class="comment"># 返回输出：</span></div><div class="line"><span class="comment"># warning: You appear to have cloned an empty repository.</span></div><div class="line"><span class="comment"># Checking connectivity... done.</span></div><div class="line"></div><div class="line"><span class="comment"># test</span></div><div class="line"><span class="built_in">cd</span> helloworld</div><div class="line">touch hello.md</div><div class="line">git add hello.md</div><div class="line">git commit -m <span class="string">"test"</span></div><div class="line">git push origin master:master</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-10-22T11:37:44.806Z"><a href="/2016/10/22/hello-world/">2016-10-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/10/22/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-<nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav></div></div>
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
