@@ -52,6 +52,43 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-02-18T04:02:51.000Z"><a href="/2017/02/18/workerman-install/">2017-02-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/02/18/workerman-install/">搭建 thinkphp5 + workman 项目</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="全局添加国内-composer-镜像"><a href="#全局添加国内-composer-镜像" class="headerlink" title="全局添加国内 composer 镜像"></a>全局添加国内 composer 镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</div></pre></td></tr></table></figure>
+<h3 id="安装-thinkphp5"><a href="#安装-thinkphp5" class="headerlink" title="安装 thinkphp5"></a>安装 thinkphp5</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer create-project topthink/think workman-project</div></pre></td></tr></table></figure>
+<p>详细流程请看文档 <a href="http://www.kancloud.cn/manual/thinkphp5/118006" target="_blank" rel="external">安装THINKPHP</a> </p>
+<h3 id="安装-workman"><a href="#安装-workman" class="headerlink" title="安装 workman"></a>安装 workman</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo dnf install libevent-devel php-event <span class="comment"># 可选</span></div><div class="line"><span class="built_in">cd</span> workman-project</div><div class="line">composer require topthink/think-worker</div></pre></td></tr></table></figure>
+<h3 id="详细查看-ThinkPHP5-0完全开发手册的-workerman-部分"><a href="#详细查看-ThinkPHP5-0完全开发手册的-workerman-部分" class="headerlink" title="详细查看 ThinkPHP5.0完全开发手册的 workerman 部分"></a>详细查看 <a href="http://www.kancloud.cn/manual/thinkphp5/235128" target="_blank" rel="external">ThinkPHP5.0完全开发手册的 workerman 部分</a></h3>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-11-17T08:29:27.000Z"><a href="/2016/11/17/githug/">2016-11-17</a></time>
       
       
@@ -604,6 +641,10 @@
     <li><a href="/tags/git/">git</a><small>3</small></li>
   
     <li><a href="/tags/php/">php</a><small>3</small></li>
+  
+    <li><a href="/tags/thinkphp5/">thinkphp5</a><small>1</small></li>
+  
+    <li><a href="/tags/workerman/">workerman</a><small>1</small></li>
   
     <li><a href="/tags/服务器/">服务器</a><small>2</small></li>
   
