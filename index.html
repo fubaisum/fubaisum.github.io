@@ -52,6 +52,73 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-09-01T15:20:24.000Z"><a href="/2017/09/01/kotlin-dev-plugin-1/">2017-09-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/01/kotlin-dev-plugin-1/">Kotlin 开发 Intellij Plugin（一）—— Hello World</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h3><ul>
+<li><p><a href="http://www.jetbrains.org/intellij/sdk/docs/tutorials/build_system/prerequisites.html#add-gradle-support-from-scratch" target="_blank" rel="external">项目添加 Gradle 支持</a></p>
+</li>
+<li><p><a href="https://github.com/JetBrains/gradle-intellij-plugin" target="_blank" rel="external">JetBrains/gradle-intellij-plugin 项目</a></p>
+</li>
+<li><p><a href="https://moxun.me/archives/28" target="_blank" rel="external">✨ 快速入门教程</a></p>
+</li>
+</ul>
+<h3 id="配置开发环境"><a href="#配置开发环境" class="headerlink" title="配置开发环境"></a>配置开发环境</h3><ul>
+<li><p><a href="http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/setting_up_environment.html" target="_blank" rel="external">获取社区版 IntelliJ IDEA 的源码</a></p>
+</li>
+<li><p>直接使用安装的 IntelliJ IDEA／Android Studio 环境</p>
+</li>
+</ul>
+<h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><h4 id="过程："><a href="#过程：" class="headerlink" title="过程："></a>过程：</h4><p>通过 Gradle 构建项目，添加 Kotlin 支持（如下图）</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-001.png" alt=""></p>
+<p>构建项目后，修改项目 build.gradle 文件，添加插件开发 SDK</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    ext.kotlin_version = <span class="string">'1.1.4-2'</span></div><div class="line"></div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        mavenCentral()</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">plugins &#123;</div><div class="line">    id <span class="string">"org.jetbrains.intellij"</span> version <span class="string">"0.2.16"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">apply plugin: <span class="string">'org.jetbrains.intellij'</span></div><div class="line">apply plugin: <span class="string">'kotlin'</span></div><div class="line"></div><div class="line"><span class="comment">// 详细配置参数请看：https://github.com/JetBrains/gradle-intellij-plugin#configuration</span></div><div class="line">intellij &#123;</div><div class="line">    localPath <span class="string">'/Applications/IntelliJ IDEA CE.app'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">compileKotlin &#123;</div><div class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></div><div class="line">&#125;</div><div class="line">compileTestKotlin &#123;</div><div class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">repositories</span> &#123;</div><div class="line">    mavenCentral()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">group</span> <span class="string">'com.fbsum.plugin'</span></div><div class="line">version <span class="string">'1.0-SNAPSHOT'</span></div><div class="line"></div><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">compile</span> <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>查看 External Libraries 确认配置成功</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-002.png" alt=""></p>
+<p>在 src/main/resources/ 目录下添加 META-INF/plugin.xml，修改相关信息，其中 id 等信息最好修改，否则可能出现无法调试的情况。</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-003.png" alt=""></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">idea-plugin</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>org.jetbrains<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>my_plugin<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">vendor</span> <span class="attr">email</span>=<span class="string">"dummy"</span> <span class="attr">url</span>=<span class="string">"dummy"</span>&gt;</span>dummy<span class="tag">&lt;/<span class="name">vendor</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>&lt;![CDATA[</div><div class="line">      Sample plugin.&lt;br&gt;</div><div class="line">    ]]&gt;<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">change-notes</span>&gt;</span>&lt;![CDATA[</div><div class="line">      Release 0.0.1: Initial release.&lt;br&gt;</div><div class="line">    ]]&gt;</div><div class="line">  <span class="tag">&lt;/<span class="name">change-notes</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">idea-version</span> <span class="attr">since-build</span>=<span class="string">"162"</span>/&gt;</span></div><div class="line"></div><div class="line">  <span class="comment">&lt;!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html</span></div><div class="line">       on how to target different products --&gt;</div><div class="line">  <span class="comment">&lt;!-- uncomment to enable plugin in all products</span></div><div class="line">  &lt;depends&gt;com.intellij.modules.lang&lt;/depends&gt;</div><div class="line">  --&gt;</div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">extensions</span> <span class="attr">defaultExtensionNs</span>=<span class="string">"com.intellij"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">extensions</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">actions</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;/<span class="name">actions</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">idea-plugin</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>创建 Action</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-010.png" alt=""></p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-005.png" alt=""></p>
+<p>将生成的 Action 转成 Kotlin 文件</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-006.png" alt=""></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloAction</span> : <span class="type">AnAction</span></span>() &#123;</div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">actionPerformed</span><span class="params">(e: <span class="type">AnActionEvent</span>)</span></span> &#123;</div><div class="line">        <span class="keyword">val</span> project = e.project</div><div class="line">        <span class="keyword">val</span> s = Messages.showInputDialog(project, <span class="string">"What's your name?"</span>, <span class="string">"Hello"</span>, Messages.getQuestionIcon())</div><div class="line">        Messages.showMessageDialog(project, <span class="string">"Hello <span class="subst">$s</span>!"</span>, <span class="string">"Welcome"</span>, Messages.getInformationIcon())</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><p>运行 runIdea Task </p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-007.png" alt=""></p>
+<p>查看插件</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-008.png" alt=""></p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-009.png" alt=""></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-11-17T08:29:27.000Z"><a href="/2016/11/17/githug/">2016-11-17</a></time>
       
       
@@ -556,9 +623,15 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
+    <li><a href="/tags/Intellij-IDEA/">Intellij IDEA</a><small>1</small></li>
+  
     <li><a href="/tags/git/">git</a><small>3</small></li>
   
+    <li><a href="/tags/kotlin/">kotlin</a><small>1</small></li>
+  
     <li><a href="/tags/php/">php</a><small>2</small></li>
+  
+    <li><a href="/tags/plugin/">plugin</a><small>1</small></li>
   
     <li><a href="/tags/服务器/">服务器</a><small>2</small></li>
   
