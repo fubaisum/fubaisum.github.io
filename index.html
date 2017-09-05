@@ -102,6 +102,10 @@
 <p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-011.png" alt=""></p>
 <p>Log 结果如下图（PS：log.debug 不能显示，需要更改 Help &gt; Debug Log Settings）</p>
 <p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-012.png" alt=""></p>
+<h2 id="Build-Plugin"><a href="#Build-Plugin" class="headerlink" title="Build Plugin"></a>Build Plugin</h2><p>修改 gradle 配置</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">intellij &#123;</div><div class="line">    ......</div><div class="line">    <span class="comment">// 不更新 plugin.xml 里的 since-build 属性，即以 plugin.xml 的配置为准</span></div><div class="line">    intellij.updateSinceUntilBuild <span class="keyword">false</span></div><div class="line">    ......</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行 buildPlugin task</p>
+<p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-013.png" alt=""></p>
 <h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/fbsum/HelloWorldPlugin" target="_blank" rel="external">https://github.com/fbsum/HelloWorldPlugin</a></p>
 
       
