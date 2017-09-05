@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Kotlin 开发 Intellij Plugin —— Hello World | Fbsum&#39;s Blog</title>
+  <title>Kotlin 开发 Intellij Plugin（入门） | Fbsum&#39;s Blog</title>
   <meta name="author" content="fbsum">
   
   <meta name="description" content="参考:
@@ -22,12 +22,12 @@ JetBrains/gradle-intellij-plugin 项目
 直接使用安装的 IntelliJ IDEA／Android Studio 环境
 
 
-新建项目过程：通">
+新建项目为了方便">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Kotlin 开发 Intellij Plugin —— Hello World"/>
+  <meta property="og:title" content="Kotlin 开发 Intellij Plugin（入门）"/>
   <meta property="og:site_name" content="Fbsum&#39;s Blog"/>
 
   
@@ -71,7 +71,7 @@ JetBrains/gradle-intellij-plugin 项目
       
       
   
-    <h1 class="title">Kotlin 开发 Intellij Plugin —— Hello World</h1>
+    <h1 class="title">Kotlin 开发 Intellij Plugin（入门）</h1>
   
 
     </header>
@@ -91,7 +91,8 @@ JetBrains/gradle-intellij-plugin 项目
 <li><p>直接使用安装的 IntelliJ IDEA／Android Studio 环境</p>
 </li>
 </ul>
-<h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><h4 id="过程："><a href="#过程：" class="headerlink" title="过程："></a>过程：</h4><p>通过 Gradle 构建项目，添加 Kotlin 支持（如下图）</p>
+<h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><p>为了方便插件添加第三方依赖，项目采用 gradle 方式构建。 </p>
+<h4 id="过程："><a href="#过程：" class="headerlink" title="过程："></a>过程：</h4><p>通过 Gradle 构建项目，添加 Kotlin 支持（如下图）</p>
 <p><img src="http://7xsi11.com1.z0.glb.clouddn.com/kotlin-dev-plugin-1-001.png" alt=""></p>
 <p>构建项目后，修改项目 build.gradle 文件，添加插件开发 SDK</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">    ext.kotlin_version = <span class="string">'1.1.4-2'</span></div><div class="line"></div><div class="line">    <span class="keyword">repositories</span> &#123;</div><div class="line">        mavenCentral()</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">dependencies</span> &#123;</div><div class="line">        <span class="keyword">classpath</span> <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">plugins &#123;</div><div class="line">    id <span class="string">"org.jetbrains.intellij"</span> version <span class="string">"0.2.16"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">apply plugin: <span class="string">'org.jetbrains.intellij'</span></div><div class="line">apply plugin: <span class="string">'kotlin'</span></div><div class="line"></div><div class="line"><span class="comment">// 详细配置参数请看：https://github.com/JetBrains/gradle-intellij-plugin#configuration</span></div><div class="line">intellij &#123;</div><div class="line">    localPath <span class="string">'/Applications/IntelliJ IDEA CE.app'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">compileKotlin &#123;</div><div class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></div><div class="line">&#125;</div><div class="line">compileTestKotlin &#123;</div><div class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">repositories</span> &#123;</div><div class="line">    mavenCentral()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">group</span> <span class="string">'com.fbsum.plugin'</span></div><div class="line">version <span class="string">'1.0-SNAPSHOT'</span></div><div class="line"></div><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">compile</span> <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
